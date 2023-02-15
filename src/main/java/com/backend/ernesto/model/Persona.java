@@ -1,4 +1,4 @@
-package com.portfolio.SpringBoot.model;
+package com.backend.ernesto.model;
 
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
@@ -16,7 +16,7 @@ public class Persona {
     private String nombre;
     private String apellido;
     private String descripcion;
-    private String img;
+    private String imagenUrl;
 
 //    CONTRUCTORS
     public Persona() {
@@ -26,7 +26,7 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.descripcion = descripcion;
-        this.img = img;
+        this.imagenUrl = img;
     }
 
 //    GETTER AND SETTERS    
@@ -58,10 +58,10 @@ public class Persona {
         this.descripcion = descripcion;
     }
 
-    public String getImg() {
-        return img;
+    public String getImagenUrl() {
+        return imagenUrl;
     }
-    public void setImg(String img) {
-        this.img = img;
+    public void setImagenUrl(String imagenUrl) {
+        this.imagenUrl = imagenUrl;
     }
 }

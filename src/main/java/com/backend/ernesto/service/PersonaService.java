@@ -1,7 +1,7 @@
 package com.backend.ernesto.service;
 
 import com.backend.ernesto.repository.IPersonaRepository;
-import com.portfolio.SpringBoot.model.Persona;
+import com.backend.ernesto.model.Persona;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,28 +14,28 @@ public class PersonaService implements IPersonaService{
     public IPersonaRepository personaRepo;
 
     @Override
-    public List<Persona> listar() {
+    public List<Persona> listarPersonas() {
         return this.personaRepo.findAll(); //ejecuto método de JpaRepository
     }
     
     @Override
-    public void crear(Persona persona) {
-        this.personaRepo.save(persona); //ejecuto método de JpaRepository
+    public Persona crearPersona(Persona persona) {
+        return this.personaRepo.save(persona); //ejecuto método de JpaRepository
+    }
+    
+    @Override
+    public Persona actualizarPersona(Persona persona) {
+        return this.personaRepo.save(persona);
     }
 
     @Override
-    public void eliminar(Long id) {
-        this.personaRepo.deleteById(id);
-    }
-
-    @Override
-    public void modificar(Persona persona) {
-        this.personaRepo.save(persona);
-    }
-
-    @Override
-    public Optional<Persona> buscar(Long id) {
+    public Optional<Persona> buscarPersona(Long id) {
         return this.personaRepo.findById(id);
+    }
+    
+    @Override
+    public void eliminarPersona(Long id) {
+        this.personaRepo.deleteById(id);
     }
     
 }

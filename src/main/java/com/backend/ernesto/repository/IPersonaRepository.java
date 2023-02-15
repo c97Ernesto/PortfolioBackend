@@ -1,6 +1,6 @@
 package com.backend.ernesto.repository;
 
-import com.portfolio.SpringBoot.model.Persona;
+import com.backend.ernesto.model.Persona;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

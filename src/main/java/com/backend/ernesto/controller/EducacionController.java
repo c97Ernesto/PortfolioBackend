@@ -25,7 +25,7 @@ public class EducacionController {
     }
     
         
-    @GetMapping ("/listar-educacion")
+    @GetMapping ("/listar")
     /*Devolvemos una respuesta http, y en el cuerpo de esa respuesta http, una lista.*/
     public ResponseEntity<List<Educacion>> listarEducacion() {
         List<Educacion> lista = this.educacionService.listarEducacion();
@@ -39,13 +39,13 @@ public class EducacionController {
         return new ResponseEntity<>(newEdu, HttpStatus.CREATED);
     }
     
-    @DeleteMapping ("/eliminarEducacion/{id}")
+    @DeleteMapping ("/eliminar/{id}")
     public ResponseEntity<?> eliminarEducacion(@PathVariable Long id) {
         this.educacionService.eliminarEducacion(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    @PutMapping ("/actualizarEducacion") 
+    @PutMapping ("/actualizar") 
     public ResponseEntity<Educacion> actualizarEducacion(@RequestBody Educacion edu) {
         Educacion newEdu = this.educacionService.actualizarEducacion(edu);
         return new ResponseEntity<>(newEdu, HttpStatus.OK);

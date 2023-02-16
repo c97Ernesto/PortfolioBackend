@@ -22,25 +22,25 @@ public class ExperienciaController {
     @Autowired
     public IExperienciaService expService;
     
-    @GetMapping("/listar-experiencia")
+    @GetMapping("/listar")
     public ResponseEntity<List<Experiencia>> listarExperiencias() {
         List<Experiencia> experiencias = this.expService.listarExperiencia();
         return new ResponseEntity<>(experiencias, HttpStatus.OK);
     }
     
-    @PostMapping("/agregar-experiencia")
+    @PostMapping("/agregar")
     public ResponseEntity<Experiencia> agregarExperiencia(@RequestBody Experiencia exp) {
         Experiencia newExp = this.expService.crearExperiencia(exp);
         return new ResponseEntity<>(newExp, HttpStatus.CREATED);
     }
     
-    @PutMapping("/actualizar-experiencia")
+    @PutMapping("/actualizar")
     public ResponseEntity<Experiencia> actualizarExperiencia(@RequestBody Experiencia exp) {
         Experiencia experiencia = this.expService.actualizarExperiencia(exp);
         return new ResponseEntity<>(experiencia, HttpStatus.OK);
     }
     
-    @DeleteMapping("eliminar-experiencia/{id}")
+    @DeleteMapping("eliminar/{id}")
     public ResponseEntity<?> eliminarPersona(@PathVariable Long id) {
         this.expService.eliminarExperiencia(id);
         return new ResponseEntity<>(HttpStatus.OK);

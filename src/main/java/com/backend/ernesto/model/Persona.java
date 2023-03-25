@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 public class Persona {
 //    ATTRIBUTES
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Basic
     private String nombre;

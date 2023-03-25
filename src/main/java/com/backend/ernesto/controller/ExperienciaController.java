@@ -1,7 +1,7 @@
 package com.backend.ernesto.controller;
 
 import com.backend.ernesto.model.Experiencia;
-import com.backend.ernesto.service.IExperienciaService;
+import com.backend.ernesto.service.ExperienciaService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ExperienciaController {
     
     @Autowired
-    public IExperienciaService expService;
+    public ExperienciaService expService;
     
     @GetMapping("/listar")
     public ResponseEntity<List<Experiencia>> listarExperiencias() {

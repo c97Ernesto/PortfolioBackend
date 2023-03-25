@@ -1,7 +1,7 @@
 package com.backend.ernesto.controller;
 
 import com.backend.ernesto.model.Educacion;
-import com.backend.ernesto.service.IEducacionService;
+import com.backend.ernesto.service.EducacionService;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
     
-    private final IEducacionService educacionService;
+    private final EducacionService educacionService;
 
-    public EducacionController(IEducacionService educacionService) {
+    public EducacionController(EducacionService educacionService) {
         this.educacionService = educacionService;
     }
     

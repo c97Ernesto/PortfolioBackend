@@ -1,7 +1,8 @@
 package com.backend.ernesto.controller;
 
-import com.backend.ernesto.service.IPersonaService;
 import com.backend.ernesto.model.Persona;
+import com.backend.ernesto.service.PersonaService;
+
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,9 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping ("/persona")
 public class PersonaController {
     
-    private final IPersonaService personaService;
+    private final PersonaService personaService;
 
-    public PersonaController(IPersonaService personaService) {
+    public PersonaController(PersonaService personaService) {
         this.personaService = personaService;
     }
     

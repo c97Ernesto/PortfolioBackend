@@ -1,7 +1,8 @@
 package com.backend.ernesto.controller;
 
 import com.backend.ernesto.model.Skill;
-import com.backend.ernesto.service.ISkillService;
+import com.backend.ernesto.service.SkillService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SkillControllers {
     
     @Autowired
-    public ISkillService skillService;
+    public SkillService skillService;
     
         
     @GetMapping ("/listar-skills")

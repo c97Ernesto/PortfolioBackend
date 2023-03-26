@@ -1,7 +1,9 @@
 package com.backend.ernesto.controller;
 
-import com.backend.ernesto.model.Skill;
+import com.backend.ernesto.dto.SkillDto;
 import com.backend.ernesto.service.SkillService;
+
+import jakarta.validation.Valid;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,29 +26,30 @@ public class SkillControllers {
     public SkillService skillService;
     
         
-    @GetMapping ("/listar-skills")
+    @GetMapping ("/listar")
     /*Devolvemos una respuesta http, y en el cuerpo de esa respuesta http, una lista.*/
-    public ResponseEntity<List<Skill>> listarSkills() {
-        List<Skill> skills = this.skillService.listarSkill();
+    public ResponseEntity<List<SkillDto>> listarSkills() {
+        List<SkillDto> skills = this.skillService.listarSkill();
         //Pasamos los empleados en el cuerpo, y además el código de estado http 200
         return new ResponseEntity<>(skills, HttpStatus.OK);
     }
     
-    @PostMapping ("/agregar-skill")
-    public ResponseEntity<Skill> agregarSkill(@RequestBody Skill s) {
-        Skill persona = this.skillService.crearSkill(s);
+    @PostMapping ("/agregar")
+    public ResponseEntity<SkillDto> agregarSkill(@Valid @RequestBody SkillDto s) {
+        SkillDto persona = this.skillService.crearSkill(s);
         return new ResponseEntity<>(persona, HttpStatus.CREATED);
     }
     
-    @DeleteMapping ("/eliminar-skill/{id}")
+    @PutMapping ("/actualizar/{id}") 
+    public ResponseEntity<SkillDto> actualizarSkill(@PathVariable(name = "id") Long id, 
+    		@Valid @RequestBody SkillDto skill) {
+        SkillDto s = this.skillService.actualizarSkill(skill, id);
+        return new ResponseEntity<>(s, HttpStatus.OK);
+    }
+    
+    @DeleteMapping ("/eliminar/{id}")
     public ResponseEntity<?> eliminarSkill(@PathVariable Long id) {
         this.skillService.eliminarSkill(id);
         return new ResponseEntity<>(HttpStatus.OK);
-    }
-    
-    @PutMapping ("/actualizar-skill") 
-    public ResponseEntity<Skill> actualizarSkill(@RequestBody Skill skill) {
-        Skill s = this.skillService.actualizarSkill(skill);
-        return new ResponseEntity<>(s, HttpStatus.OK);
     }
 }

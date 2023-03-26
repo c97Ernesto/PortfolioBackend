@@ -1,18 +1,17 @@
 package com.backend.ernesto.service;
 
-import com.backend.ernesto.model.Educacion;
+import com.backend.ernesto.dto.EducacionDto;
 import java.util.List;
-import java.util.Optional;
 
 public interface EducacionService {
     
-    public List<Educacion> listarEducacion();
+    public List<EducacionDto> listarEducacion();
     
-    public Educacion crearEducacion(Educacion educacion);
+    public EducacionDto crearEducacion(EducacionDto educacion);
     
-    public Educacion actualizarEducacion(Educacion educacion);
+    public EducacionDto actualizarEducacion(EducacionDto educacion, Long id);
     
-    public Optional<Educacion> buscarEducacion(Long id);
+//    public Optional<EducacionDto> buscarEducacion(Long id);
     
     public void eliminarEducacion(Long id);   
 }

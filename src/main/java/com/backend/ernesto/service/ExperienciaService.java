@@ -1,19 +1,17 @@
 package com.backend.ernesto.service;
 
-
-import com.backend.ernesto.model.Experiencia;
+import com.backend.ernesto.dto.ExperienciaDto;
 import java.util.List;
-import java.util.Optional;
 
 public interface ExperienciaService {
-     
-    public List<Experiencia> listarExperiencia();
     
-    public Experiencia crearExperiencia(Experiencia experiencia);
+    public List<ExperienciaDto> listarExperiencia();
     
-    public Experiencia actualizarExperiencia(Experiencia experiencia);
+    public ExperienciaDto crearExperiencia(ExperienciaDto experiencia);
     
-    public Optional<Experiencia> buscarExperiencia(Long id);
+    public ExperienciaDto actualizarExperiencia(ExperienciaDto experiencia, Long id);
+    
+//    public Optional<ExperienciaDto> buscarExperiencia(Long id);
     
     public void eliminarExperiencia(Long id);   
 }

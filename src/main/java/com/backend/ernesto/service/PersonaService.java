@@ -1,20 +1,19 @@
 package com.backend.ernesto.service;
 
-import com.backend.ernesto.model.Persona;
+import com.backend.ernesto.dto.PersonaDto;
 import java.util.List;
-import java.util.Optional;
 
 
 
 public interface PersonaService {
     
-    public List<Persona> listarPersonas();
+    public List<PersonaDto> listarPersonas();
     
-    public Persona crearPersona(Persona persona);
+    public PersonaDto crearPersona(PersonaDto persona);
     
-    public Persona actualizarPersona(Persona persona);
+    public PersonaDto actualizarPersona(PersonaDto persona, Long id);
     
-    public Optional<Persona> buscarPersona(Long id);
+//    public Optional<PersonaDto> buscarPersona(Long id);
     
     public void eliminarPersona(Long id);
 }

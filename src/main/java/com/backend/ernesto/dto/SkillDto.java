@@ -1,25 +1,27 @@
-package com.backend.ernesto.model;
+package com.backend.ernesto.dto;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotEmpty;
 
-@Entity
-public class Skill {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+public class SkillDto {
+	
+//  ATTRIBUTES
     private Long id;
+    
+	@NotEmpty
     private String nombre;
+    
     private int porcentaje;
 
-    public Skill() {
+//  CONSTRUCTORS
+    public SkillDto() {
     }
-    public Skill(String nombre, int porcentaje) {
+    public SkillDto(String nombre, int porcentaje) {
         this.nombre = nombre;
         this.porcentaje = porcentaje;
     }
 
+//  GETTERS AND SETTERS
     public Long getId() {
         return id;
     }

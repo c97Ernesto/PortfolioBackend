@@ -1,6 +1,5 @@
 package com.backend.ernesto.model;
 
-import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,14 +11,18 @@ public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Basic
+    
     private String nombre;
+    
     private String apellido;
+    
     private String descripcion;
+    
     private String imagenUrl;
 
 //    CONTRUCTORS
     public Persona() {
+    	
     }
 
     public Persona(String nombre, String apellido, String descripcion, String img) {

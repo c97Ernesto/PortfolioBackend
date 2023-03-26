@@ -1,7 +1,10 @@
 package com.backend.ernesto.controller;
 
-import com.backend.ernesto.model.Educacion;
+import com.backend.ernesto.dto.EducacionDto;
 import com.backend.ernesto.service.EducacionService;
+
+import jakarta.validation.Valid;
+
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,16 +32,23 @@ public class EducacionController {
         
     @GetMapping ("/listar")
     /*Devolvemos una respuesta http, y en el cuerpo de esa respuesta http, una lista.*/
-    public ResponseEntity<List<Educacion>> listarEducacion() {
-        List<Educacion> lista = this.educacionService.listarEducacion();
+    public ResponseEntity<List<EducacionDto>> listarEducacion() {
+        List<EducacionDto> estudios = this.educacionService.listarEducacion();
         //Pasamos los empleados en el cuerpo, y además el código de estado http 200
-        return new ResponseEntity<>(lista, HttpStatus.OK);
+        return new ResponseEntity<>(estudios, HttpStatus.OK);
     }
     
     @PostMapping ("/agregar")
-    public ResponseEntity<Educacion> agregarEducacion(@RequestBody Educacion edu) {
-        Educacion newEdu = this.educacionService.crearEducacion(edu);
+    public ResponseEntity<EducacionDto> agregarEducacion(@Valid @RequestBody EducacionDto educacionDto) {
+        EducacionDto newEdu = this.educacionService.crearEducacion(educacionDto);
         return new ResponseEntity<>(newEdu, HttpStatus.CREATED);
+    }
+    
+    @PutMapping ("/actualizar/{id}") 
+    public ResponseEntity<EducacionDto> actualizarEducacion(@PathVariable(name = "id") Long id, 
+    		@Valid @RequestBody EducacionDto educacionDto) {
+        EducacionDto newEdu = this.educacionService.actualizarEducacion(educacionDto, id);
+        return new ResponseEntity<>(newEdu, HttpStatus.OK);
     }
     
     @DeleteMapping ("/eliminar/{id}")
@@ -47,9 +57,4 @@ public class EducacionController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
     
-    @PutMapping ("/actualizar") 
-    public ResponseEntity<Educacion> actualizarEducacion(@RequestBody Educacion edu) {
-        Educacion newEdu = this.educacionService.actualizarEducacion(edu);
-        return new ResponseEntity<>(newEdu, HttpStatus.OK);
-    }
 }

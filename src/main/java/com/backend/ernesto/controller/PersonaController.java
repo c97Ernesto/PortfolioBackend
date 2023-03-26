@@ -1,7 +1,9 @@
 package com.backend.ernesto.controller;
 
-import com.backend.ernesto.model.Persona;
+import com.backend.ernesto.dto.PersonaDto;
 import com.backend.ernesto.service.PersonaService;
+
+import jakarta.validation.Valid;
 
 import java.util.List;
 import org.springframework.http.HttpStatus;
@@ -28,29 +30,32 @@ public class PersonaController {
         
     @GetMapping ("/listar")
     /*Devolvemos una respuesta http, y en el cuerpo de esa respuesta http, una lista.*/
-    public ResponseEntity<List<Persona>> listarPersonas() {
-        List<Persona> personas = this.personaService.listarPersonas();
+    public ResponseEntity<List<PersonaDto>> listarPersonas() {
+        List<PersonaDto> personas = this.personaService.listarPersonas();
         //Pasamos los empleados en el cuerpo, y además el código de estado http 200
         return new ResponseEntity<>(personas, HttpStatus.OK);
     }
     
     
     @PostMapping ("/agregar")
-    public ResponseEntity<Persona> agregarPersona(@RequestBody Persona p) {
-        Persona persona = this.personaService.crearPersona(p);
-        return new ResponseEntity<>(persona, HttpStatus.CREATED);
+    public ResponseEntity<PersonaDto> agregarPersona(@Valid @RequestBody PersonaDto p) {
+    	PersonaDto personaDto = this.personaService.crearPersona(p);
+        return new ResponseEntity<>(personaDto, HttpStatus.CREATED);
+    }
+    
+    
+    @PutMapping ("/actualizar/{id}") 
+    public ResponseEntity<PersonaDto> actualizarPersona(@PathVariable(name = "id") Long id,
+    		@Valid @RequestBody PersonaDto personaDto) {
+    	PersonaDto p = this.personaService.actualizarPersona(personaDto, id);
+        return new ResponseEntity<>(p, HttpStatus.OK);
     }
     
     @DeleteMapping ("/eliminar/{id}")
-    public ResponseEntity<?> eliminarPersona(@PathVariable Long id) {
+    public ResponseEntity<String> eliminarPersona(@PathVariable Long id) {
         this.personaService.eliminarPersona(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>("Persona eliminada correctamente",HttpStatus.OK);
     }
-    
-    @PutMapping ("/actualizar") 
-    public ResponseEntity<Persona> actualizarPersona(@RequestBody Persona persona) {
-        Persona p = this.personaService.actualizarPersona(persona);
-        return new ResponseEntity<>(p, HttpStatus.OK);
-    }
+
     
 }

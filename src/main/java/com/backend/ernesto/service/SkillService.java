@@ -1,18 +1,17 @@
 package com.backend.ernesto.service;
 
-import com.backend.ernesto.model.Skill;
+import com.backend.ernesto.dto.SkillDto;
 import java.util.List;
-import java.util.Optional;
 
 public interface SkillService {
     
-    public List<Skill> listarSkill();
+    public List<SkillDto> listarSkill();
     
-    public Skill crearSkill(Skill skill);
+    public SkillDto crearSkill(SkillDto skill);
     
-    public Skill actualizarSkill(Skill skill);
+    public SkillDto actualizarSkill(SkillDto skill, Long id);
     
-    public Optional<Skill> buscarSkill(Long id);
+//    public Optional<SkillDto> buscarSkill(Long id);
     
-    public void eliminarSkill(Long id);  
+    public void eliminarSkill(Long id);   
 }

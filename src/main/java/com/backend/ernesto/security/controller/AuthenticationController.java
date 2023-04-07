@@ -7,9 +7,7 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.backend.ernesto.security.jsonWebToken.JwtUtils;
 import com.backend.ernesto.security.model.JwtRequest;
@@ -17,6 +15,7 @@ import com.backend.ernesto.security.model.JwtResponse;
 import com.backend.ernesto.security.service.UserDetailsServiceImpl;
 
 @RestController
+@CrossOrigin("*")
 public class AuthenticationController {
 	
 	@Autowired AuthenticationManager authenticationManager;
@@ -43,7 +42,7 @@ public class AuthenticationController {
 	
 	private void autenticar(String username, String password) throws Exception{
 		try {
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
+			this.authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
 			
 		} catch (DisabledException disabledException) {
 			throw new Exception("USUARIO DESHABILITADO" + disabledException.getMessage());

@@ -28,17 +28,12 @@ public class Usuario implements UserDetails{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull
-	private String name;
-	
-	@NotNull
-	@Column(unique = true)
 	private String username;
 	
-	@NotNull
+	
 	private String email;
 	
-	@NotNull
+	
 	private String password;
 
 	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "usuario")
@@ -50,8 +45,8 @@ public class Usuario implements UserDetails{
 		super();
 	}
 
-	public Usuario(String nombre, String nombreUsuario, String email, String password) {
-		this.name = nombre;
+	public Usuario(String nombreUsuario, String email, String password) {
+		
 		this.username = nombreUsuario;
 		this.email = email;
 		this.password = password;
@@ -65,14 +60,6 @@ public class Usuario implements UserDetails{
 	
 	public void setId(Long id) {
 		this.id = id;
-	}
-	
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
 	}
 
 	public String getUsername() {

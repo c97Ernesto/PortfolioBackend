@@ -1,28 +1,31 @@
 package com.backend.ernesto.security.jsonWebToken;
 
-
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
+import javax.crypto.SecretKey;
+
 
 @Component
 public class JwtUtils {
 
-    private String SECRET_KEY = "secret";
-    
-    /*extraemos y devolvemos el nombre de usuario (subject) codificado en el token JWT.*/
+    private SecretKey SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256);
+
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
     }
 
-    /*extraemos y devolvemos la fecha de expiración del token JWT.*/
     public Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
     }
@@ -34,6 +37,7 @@ public class JwtUtils {
     private Claims extractAllClaims(String token) {
         return Jwts.parser().setSigningKey(SECRET_KEY).parseClaimsJws(token).getBody();
     }
+    
 
     private Boolean isTokenExpired(String token) {
         return extractExpiration(token).before(new Date());

@@ -107,32 +107,35 @@ public class SecurityConfig {
 //		return http.build();
 //	}
 
+//	@Bean
+//	SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
+//		httpSecurity.cors().and().csrf(csrf -> csrf.disable())
+//			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
+//			.authorizeHttpRequests(auth -> auth.requestMatchers(new AntPathRequestMatcher("/generate-token", "usuario")).permitAll()
+//						.requestMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated())
+//				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+//
+//		httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+//		return httpSecurity.build();
+//	}
+
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-		httpSecurity.cors().and().csrf(csrf -> csrf.disable())
-			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-			.authorizeHttpRequests(auth -> auth.requestMatchers(new AntPathRequestMatcher("/generate-token", "usuario")).permitAll()
-						.requestMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated())
-				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-
-		httpSecurity.authenticationProvider(AuthenticationProvider());
+		httpSecurity
+				.cors().and().csrf().disable()
+				.exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
+				
+				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				
+				.and().authorizeHttpRequests(auth -> auth
+						.requestMatchers("/generate-token","/usuario/").permitAll()
+						.requestMatchers(HttpMethod.OPTIONS).permitAll()
+						.anyRequest().authenticated());
+		
 
 		httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 		return httpSecurity.build();
 	}
 
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http.cors().and().csrf().disable().authorizeHttpRequests(authConfig -> {
-//            authConfig.requestMatchers("/generate-token").permitAll();
-//            authConfig.requestMatchers("/usuario").permitAll();
-//            authConfig.anyRequest().authenticated();
-//        }).exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and().sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-//
-//        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-//
-//        return http.build();
-//    }
 
 }

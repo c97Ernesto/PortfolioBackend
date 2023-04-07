@@ -1,53 +1,41 @@
 package com.backend.ernesto.security.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class UsuarioRol {
-//	ATTRIBUTES	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long usuarioRolId;
-	
-	@ManyToOne(fetch = FetchType.EAGER)
-	private Usuario usuario;
-	
-	@ManyToOne
-	private Rol rol;
 
-// 	CONSTRUCTORS
-	public UsuarioRol() {
-		
-	}
-	
-//	GETTERS AND SETTERS
-	public Long getUsuarioRolId() {
-		return usuarioRolId;
-	}
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long usuarioRolId;
 
-	public void setUsuarioRolId(Long usuarioRolId) {
-		this.usuarioRolId = usuarioRolId;
-	}
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Usuario usuario;
 
-	public Usuario getUsuario() {
-		return usuario;
-	}
+    @ManyToOne
+    private Rol rol;
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
-	}
+    public Long getUsuarioRolId() {
+        return usuarioRolId;
+    }
 
-	public Rol getRol() {
-		return rol;
-	}
+    public void setUsuarioRolId(Long usuarioRolId) {
+        this.usuarioRolId = usuarioRolId;
+    }
 
-	public void setRol(Rol rol) {
-		this.rol = rol;
-	}
-	
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
 }

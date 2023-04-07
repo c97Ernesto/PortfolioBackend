@@ -16,17 +16,17 @@ import com.backend.ernesto.security.service.UsuarioService;
 @SpringBootApplication // utilización del framework de springboot
 public class ErnestoApplication implements CommandLineRunner {
 
-//	@Autowired
-//	private UsuarioService usuarioService;
+	@Autowired
+	private UsuarioService usuarioService;
 
 	public static void main(String[] args) {
 		SpringApplication.run(ErnestoApplication.class, args);
 	}
-//
-//	@Bean
-//	BCryptPasswordEncoder bCryptPasswordEncoder() {
-//		return new BCryptPasswordEncoder();
-//	}
+
+	@Bean
+	BCryptPasswordEncoder bCryptPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -47,7 +47,7 @@ public class ErnestoApplication implements CommandLineRunner {
 //
 //			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario, usuariosRoles);
 //			System.out.println(usuarioGuardado.getUsername());
-//
+
 
 	}
 }

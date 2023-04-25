@@ -1,5 +1,7 @@
 package com.backend.ernesto.security.controller;
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import com.backend.ernesto.security.jsonWebToken.JwtUtils;
 import com.backend.ernesto.security.model.JwtRequest;
 import com.backend.ernesto.security.model.JwtResponse;
+import com.backend.ernesto.security.model.Usuario;
 import com.backend.ernesto.security.service.UserDetailsServiceImpl;
 
 @RestController
@@ -50,5 +53,10 @@ public class AuthenticationController {
 		} catch (BadCredentialsException badCredentialsException ) {
 			throw new Exception("CREDENCIALES INVÁLIDAS" + badCredentialsException.getMessage());
 		}
+	}
+	
+	@GetMapping("/actual-usuario")
+	public Usuario obtenerUsuarioActual(Principal principal) {
+		return (Usuario) this.userDetailsServiceImpl.loadUserByUsername(principal.getName());
 	}
 }

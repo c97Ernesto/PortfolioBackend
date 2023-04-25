@@ -128,7 +128,7 @@ public class SecurityConfig {
 				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 				
 				.and().authorizeHttpRequests(auth -> auth
-						.requestMatchers("/generate-token","/usuario/").permitAll()
+						.requestMatchers("/**").permitAll()
 						.requestMatchers(HttpMethod.OPTIONS).permitAll()
 						.anyRequest().authenticated());
 		

@@ -13,7 +13,7 @@ public interface PersonaService {
     
     public PersonaDto actualizarPersona(PersonaDto persona, Long id);
     
-//    public Optional<PersonaDto> buscarPersona(Long id);
-    
     public void eliminarPersona(Long id);
+
+	public PersonaDto obtenerPersonaPorId(Long id);
 }

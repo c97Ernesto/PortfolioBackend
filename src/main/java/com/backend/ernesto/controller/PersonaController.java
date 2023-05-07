@@ -8,6 +8,7 @@ import jakarta.validation.Valid;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,7 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping ("/api/persona")
+@RequestMapping ("/persona")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
     
     private final PersonaService personaService;
@@ -32,10 +34,14 @@ public class PersonaController {
     /*Devolvemos una respuesta http, y en el cuerpo de esa respuesta http, una lista.*/
     public ResponseEntity<List<PersonaDto>> listarPersonas() {
         List<PersonaDto> personas = this.personaService.listarPersonas();
-        //Pasamos los empleados en el cuerpo, y además el código de estado http 200
         return new ResponseEntity<>(personas, HttpStatus.OK);
     }
     
+    @GetMapping("/{id}")
+    public ResponseEntity<PersonaDto> obternerPorId(@PathVariable("id") Long id) {
+    	return new ResponseEntity<>(this.personaService.obtenerPersonaPorId(id), HttpStatus.OK);
+    	
+    }
     
     @PostMapping ("/agregar")
     public ResponseEntity<PersonaDto> agregarPersona(@Valid @RequestBody PersonaDto p) {

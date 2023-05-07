@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/educacion")
+@RequestMapping("/educacion")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EducacionController {
     
@@ -29,8 +29,7 @@ public class EducacionController {
     public EducacionController(EducacionService educacionService) {
         this.educacionService = educacionService;
     }
-    
-        
+            
     @GetMapping ("/listar")
     /*Devolvemos una respuesta http, y en el cuerpo de esa respuesta http, una lista.*/
     public ResponseEntity<List<EducacionDto>> listarEducacion() {

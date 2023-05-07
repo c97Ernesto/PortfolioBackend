@@ -4,6 +4,7 @@ import com.backend.ernesto.dto.PersonaDto;
 import com.backend.ernesto.model.Persona;
 import com.backend.ernesto.repository.IPersonaRepository;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,6 +89,13 @@ public class PersonaServiceImpl implements PersonaService{
 //		PersonaDto personaDto = this.modelMapper.map(persona, PersonaDto.class);
 //
 //		return personaDto;
+	}
+
+	@Override
+	public PersonaDto obtenerPersonaPorId(Long id) {
+		Persona persona = this.personaRepo.findById(id).
+				orElseThrow();
+		return this.mapearAdto(persona);
 	}
     
 }

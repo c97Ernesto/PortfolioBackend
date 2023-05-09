@@ -48,6 +48,6 @@ public class ErnestoApplication implements CommandLineRunner {
 //			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario, usuariosRoles);
 //			System.out.println(usuarioGuardado.getUsername());
 
-
+		
 	}
 }

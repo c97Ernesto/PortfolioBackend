@@ -1,4 +1,4 @@
-FROM amazoncorreto:17
+FROM jdk:17
 
 MAINTAINER ernesto
 

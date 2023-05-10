@@ -18,7 +18,7 @@ import com.backend.ernesto.security.model.Usuario;
 import com.backend.ernesto.security.service.UserDetailsServiceImpl;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin
 public class AuthenticationController {
 	
 	@Autowired AuthenticationManager authenticationManager;

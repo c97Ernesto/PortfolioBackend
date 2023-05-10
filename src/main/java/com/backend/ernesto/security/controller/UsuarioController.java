@@ -22,7 +22,7 @@ import com.backend.ernesto.security.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class UsuarioController {
 
 	@Autowired private UsuarioService usuarioService;

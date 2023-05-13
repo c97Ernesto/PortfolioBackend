@@ -39,6 +39,9 @@ public class ExperienciaServiceImpl implements ExperienciaService{
     	
     	experiencia.setDescripcion(experienciaDto.getDescripcion());
     	experiencia.setNombre(experienciaDto.getNombre());
+    	experiencia.setFechaInicio(experienciaDto.getFechaInicio());
+		experiencia.setFechaFin(experienciaDto.getFechaFin());
+		experiencia.setLogo(experienciaDto.getLogo());
     	
     	this.experienciaRepo.save(experiencia);
     	
@@ -62,8 +65,10 @@ public class ExperienciaServiceImpl implements ExperienciaService{
 		
 		experienciaDto.setId(experiencia.getId());
 		experienciaDto.setNombre(experiencia.getNombre());
-		
 		experienciaDto.setDescripcion(experiencia.getDescripcion());
+		experienciaDto.setFechaInicio(experiencia.getFechaInicio());
+		experienciaDto.setFechaFin(experiencia.getFechaFin());
+		experienciaDto.setLogo(experiencia.getLogo());
 		
 		
 		return experienciaDto;
@@ -79,6 +84,9 @@ public class ExperienciaServiceImpl implements ExperienciaService{
 		
 		experiencia.setNombre(experienciaDto.getNombre());
 		experiencia.setDescripcion(experienciaDto.getDescripcion());
+		experiencia.setFechaInicio(experienciaDto.getFechaInicio());
+		experiencia.setFechaFin(experienciaDto.getFechaFin());
+		experiencia.setLogo(experienciaDto.getLogo());
 		
 		return experiencia;
 		

@@ -39,8 +39,11 @@ public class EducacionServiceImpl implements EducacionService{
     	Educacion educacion = this.educacionRepo.findById(id)
     			.orElseThrow();
     	
-    	educacion.setDescripcion(educacionDto.getDescripcion());
     	educacion.setNombre(educacionDto.getNombre());
+    	educacion.setDescripcion(educacionDto.getDescripcion());
+    	educacion.setFechaInicio(educacionDto.getFechaInicio());
+		educacion.setFechaFin(educacionDto.getFechaFin());
+		educacion.setLogo(educacionDto.getLogo());
     	
     	this.educacionRepo.save(educacion);
     	
@@ -64,8 +67,10 @@ public class EducacionServiceImpl implements EducacionService{
 		
 		educacionDto.setId(educacion.getId());
 		educacionDto.setNombre(educacion.getNombre());
-		
 		educacionDto.setDescripcion(educacion.getDescripcion());
+		educacionDto.setFechaInicio(educacion.getFechaInicio());
+		educacionDto.setFechaFin(educacion.getFechaFin());
+		educacionDto.setLogo(educacion.getLogo());
 		
 		
 		return educacionDto;
@@ -81,6 +86,9 @@ public class EducacionServiceImpl implements EducacionService{
 		
 		educacion.setNombre(educacionDto.getNombre());
 		educacion.setDescripcion(educacionDto.getDescripcion());
+		educacion.setFechaInicio(educacionDto.getFechaInicio());
+		educacion.setFechaFin(educacionDto.getFechaFin());
+		educacion.setLogo(educacionDto.getLogo());
 		
 		return educacion;
 		

@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 @CrossOrigin
 public class EducacionController {
     
-    private final EducacionService educacionService;
+    private EducacionService educacionService;
 
     public EducacionController(EducacionService educacionService) {
         this.educacionService = educacionService;

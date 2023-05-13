@@ -15,9 +15,17 @@ public class PersonaDto {
 	@Size(min = 2, message = "El apellido debería tener al menos dos caracteres")
     private String apellido;
 	
-    private String descripcion;
-    
-    private String imagenUrl;
+	private String titulo;
+
+	private String sobreMi;
+
+	private String telefono;
+
+	private String email;
+
+	private String imgPerfilUrl;
+
+	private String imgFondo;
 
 //  CONTRUCTORS
     public PersonaDto() {
@@ -49,20 +57,52 @@ public class PersonaDto {
 		this.apellido = apellido;
 	}
 
-	public String getDescripcion() {
-		return descripcion;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
-	public String getImagenUrl() {
-		return imagenUrl;
+	public String getSobreMi() {
+		return sobreMi;
 	}
 
-	public void setImagenUrl(String imagenUrl) {
-		this.imagenUrl = imagenUrl;
+	public void setSobreMi(String sobreMi) {
+		this.sobreMi = sobreMi;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getImgPerfilUrl() {
+		return imgPerfilUrl;
+	}
+
+	public void setImgPerfilUrl(String imgPerfilUrl) {
+		this.imgPerfilUrl = imgPerfilUrl;
+	}
+
+	public String getImgFondo() {
+		return imgFondo;
+	}
+
+	public void setImgFondo(String imgFondo) {
+		this.imgFondo = imgFondo;
 	}
     
     

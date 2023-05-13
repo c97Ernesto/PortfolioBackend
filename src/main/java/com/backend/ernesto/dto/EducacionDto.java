@@ -1,5 +1,7 @@
 package com.backend.ernesto.dto;
 
+import java.time.LocalDate;
+
 import jakarta.validation.constraints.NotEmpty;
 
 public class EducacionDto {
@@ -11,16 +13,17 @@ public class EducacionDto {
     
     private String descripcion;
     
+    private LocalDate fechaInicio;
+    
+    private LocalDate fechaFin;
+    
+    private String logo;
+    
 //    CONSTRUCTORS
     public EducacionDto() {
     	super();
     }
-    
-    public EducacionDto(String nombre, String descripcion) {
-        this.nombre = nombre;
-        this.descripcion = descripcion;
-    }
-    
+
 //    GETTERS AND SETTERS
     public Long getId() {
         return id;
@@ -42,5 +45,29 @@ public class EducacionDto {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+	public LocalDate getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public void setFechaInicio(LocalDate fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	public LocalDate getFechaFin() {
+		return fechaFin;
+	}
+
+	public void setFechaFin(LocalDate fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
     
 }

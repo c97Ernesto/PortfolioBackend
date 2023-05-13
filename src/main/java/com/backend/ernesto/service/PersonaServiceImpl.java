@@ -40,9 +40,14 @@ public class PersonaServiceImpl implements PersonaService{
         Persona persona = this.personaRepo.findById(id)
         		.orElseThrow();
         persona.setApellido(personaDto.getApellido());
-        persona.setDescripcion(personaDto.getDescripcion());
-        persona.setImagenUrl(personaDto.getImagenUrl());
         persona.setNombre(personaDto.getNombre());
+        persona.setEmail(personaDto.getEmail());
+		persona.setImgFondo(personaDto.getImgFondo());
+		persona.setImgPerfilUrl(personaDto.getImgPerfilUrl());
+		persona.setSobreMi(personaDto.getSobreMi());
+		persona.setTelefono(personaDto.getTelefono());
+		persona.setTitulo(personaDto.getTitulo());
+        
         
         this.personaRepo.save(persona);
         
@@ -65,8 +70,13 @@ public class PersonaServiceImpl implements PersonaService{
 		Persona persona = new Persona();
 		persona.setNombre(personaDto.getNombre());
 		persona.setApellido(personaDto.getApellido());
-		persona.setDescripcion(personaDto.getDescripcion());
-		persona.setImagenUrl(personaDto.getImagenUrl());
+		persona.setEmail(personaDto.getEmail());
+		persona.setImgFondo(personaDto.getImgFondo());
+		persona.setImgPerfilUrl(personaDto.getImgPerfilUrl());
+		persona.setSobreMi(personaDto.getSobreMi());
+		persona.setTelefono(personaDto.getTelefono());
+		persona.setTitulo(personaDto.getTitulo());
+		
 		return persona;
 		
 //		Persona persona = this.modelMapper.map(personaDto, Persona.class);
@@ -81,8 +91,12 @@ public class PersonaServiceImpl implements PersonaService{
 		personaDto.setId(persona.getId());
 		personaDto.setNombre(persona.getNombre());
 		personaDto.setApellido(persona.getApellido());
-		personaDto.setDescripcion(persona.getDescripcion());
-		personaDto.setImagenUrl(persona.getImagenUrl());
+		personaDto.setEmail(persona.getEmail());
+		personaDto.setImgFondo(persona.getImgFondo());
+		personaDto.setImgPerfilUrl(persona.getImgPerfilUrl());
+		personaDto.setSobreMi(persona.getSobreMi());
+		personaDto.setTelefono(persona.getTelefono());
+		personaDto.setTitulo(persona.getTitulo());
 		
 		return personaDto;
 		

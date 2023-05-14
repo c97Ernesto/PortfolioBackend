@@ -4,11 +4,13 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.backend.ernesto.dto.ProyectoDto;
 import com.backend.ernesto.model.Proyecto;
 import com.backend.ernesto.repository.IProyectoRepository;
 
+@Service
 public class ProyectoServiceImpl implements ProyectoService{
 	
 	@Autowired
@@ -36,8 +38,11 @@ public class ProyectoServiceImpl implements ProyectoService{
     	Proyecto proyecto = this.proyectoRepository.findById(id)
     			.orElseThrow();
     	
-    	proyecto.setDescripcion(proyectoDto.getDescripcion());
     	proyecto.setNombre(proyectoDto.getNombre());
+		proyecto.setDescripcion(proyectoDto.getDescripcion());
+		proyecto.setLink(proyectoDto.getLink());
+		proyecto.setImagen(proyectoDto.getImagen());
+		proyecto.setFechaCreacion(proyectoDto.getFechaCreacion());
     	
     	this.proyectoRepository.save(proyecto);
     	

@@ -23,6 +23,7 @@ public class Experiencia {
     
 //    CONSTRUCTORS
     public Experiencia() {
+    	super();
     }
         
 	public Experiencia(String nombre, String descripcion, LocalDate fechaInicio, LocalDate fechaFin, String logo) {

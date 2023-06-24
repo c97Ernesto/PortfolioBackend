@@ -2,10 +2,8 @@ package com.backend.ernesto.service;
 
 import com.backend.ernesto.dto.EducacionDto;
 import com.backend.ernesto.model.Educacion;
-import com.backend.ernesto.model.Persona;
 import com.backend.ernesto.repository.IEducacionRepository;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;

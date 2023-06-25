@@ -39,25 +39,10 @@ public class SecurityConfig {
 	@Autowired
 	private JwtAuthenticationFilter jwtAuthenticationFilter;
 
-//    @Bean
-//    PasswordEncoder passwordEncoder() {
-//		return NoOpPasswordEncoder.getInstance();
-//	}
-
-
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-//    @Bean
-//    AuthenticationManager authenticationManager(HttpSecurity http)
-//            throws Exception {
-//	    return http.getSharedObject(AuthenticationManagerBuilder.class)
-//	      .userDetailsService(userDetailsServiceImpl)
-//	      .passwordEncoder(passwordEncoder())
-//	      .and()
-//	      .build();
-//	}
 
     @Bean
     AuthenticationProvider AuthenticationProvider() {
@@ -74,50 +59,6 @@ public class SecurityConfig {
             AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
-//    @Bean
-//    protected SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//        http
-//                .cors().and().csrf().disable()
-//                .exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
-//                
-//                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                
-//        		.and().authorizeRequests().requestMatchers("/generate-token").permitAll()
-//        		.requestMatchers("/usuario").permitAll().anyRequest().authenticated();
-//        
-//        http.authenticationProvider(daoAuthenticationProvider());
-//
-//        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-//        return http.build();
-//    }
-
-//    @Bean
-//    SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-//		http.cors().and().csrf().disable().exceptionHandling().authenticationEntryPoint(unauthorizedHandler)
-//
-//				.and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//
-//				.and().authorizeHttpRequests((authorize) -> authorize.requestMatchers("/generate-token", "/usuario/")
-//						.permitAll().requestMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated());
-//		
-//		http.authenticationProvider(daoAuthenticationProvider());
-//
-//		http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-//		return http.build();
-//	}
-
-//	@Bean
-//	SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-//		httpSecurity.cors().and().csrf(csrf -> csrf.disable())
-//			.exceptionHandling().authenticationEntryPoint(unauthorizedHandler).and()
-//			.authorizeHttpRequests(auth -> auth.requestMatchers(new AntPathRequestMatcher("/generate-token", "usuario")).permitAll()
-//						.requestMatchers(HttpMethod.OPTIONS).permitAll().anyRequest().authenticated())
-//				.sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
-//
-//		httpSecurity.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
-//		return httpSecurity.build();
-//	}
 
 	@Bean
 	SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {

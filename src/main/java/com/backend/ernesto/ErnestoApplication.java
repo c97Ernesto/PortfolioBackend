@@ -30,23 +30,23 @@ public class ErnestoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-			Usuario usuario = new Usuario();
-			usuario.setUsername("admin");
-			usuario.setPassword(bCryptPasswordEncoder().encode("admin"));
-			usuario.setEmail("admin@gmail.com");
-
-			Rol rol = new Rol();
-			rol.setRolId(1L);
-			rol.setRolNombre("ADMIN");
-
-			Set<UsuarioRol> usuariosRoles = new HashSet<>();
-			UsuarioRol usuarioRol = new UsuarioRol();
-			usuarioRol.setRol(rol);
-			usuarioRol.setUsuario(usuario);
-			usuariosRoles.add(usuarioRol);
-
-			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario, usuariosRoles);
-			System.out.println(usuarioGuardado.getUsername());
+//			Usuario usuario = new Usuario();
+//			usuario.setUsername("admin");
+//			usuario.setPassword(bCryptPasswordEncoder().encode("admin"));
+//			usuario.setEmail("admin@gmail.com");
+//
+//			Rol rol = new Rol();
+//			rol.setRolId(1L);
+//			rol.setRolNombre("ADMIN");
+//
+//			Set<UsuarioRol> usuariosRoles = new HashSet<>();
+//			UsuarioRol usuarioRol = new UsuarioRol();
+//			usuarioRol.setRol(rol);
+//			usuarioRol.setUsuario(usuario);
+//			usuariosRoles.add(usuarioRol);
+//
+//			Usuario usuarioGuardado = usuarioService.guardarUsuario(usuario, usuariosRoles);
+//			System.out.println(usuarioGuardado.getUsername());
 
 	}
 }

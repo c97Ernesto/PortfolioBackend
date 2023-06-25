@@ -7,6 +7,8 @@
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/security/jsonWebToken/JwtAuthenticationFilter.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/WebConfig.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/repository/IEducacionRepository.java
+/home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/dto/RedSocialDto.java
+/home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/controller/RedSocialController.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/security/SecurityConfig.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/EducacionServiceImpl.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/dto/SkillDto.java
@@ -21,11 +23,14 @@
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/repository/IExperienciaRepository.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/SkillService.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/dto/EducacionDto.java
+/home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/repository/IRedSocialRepository.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/security/jsonWebToken/JwtUtils.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/controller/SkillControllers.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/controller/ExperienciaController.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/controller/ProyectoController.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/security/repository/RolRepository.java
+/home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/model/RedSocial.java
+/home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/RedSocialService.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/SkillServiceImpl.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/repository/ISkillRepository.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/ProyectoServiceImpl.java
@@ -44,6 +49,7 @@
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/controller/EducacionController.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/security/service/UsuarioService.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/repository/IPersonaRepository.java
+/home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/RedSocialServiceImpl.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/ProyectoService.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/model/Experiencia.java
 /home/ernesto/GitHub/Argentina-Programa/ArgentinaPrograma_Etapa2/Portfolios/Portfolio/PortfolioBackend/src/main/java/com/backend/ernesto/service/ExperienciaServiceImpl.java

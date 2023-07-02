@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1deb5ubuntu1
+- https://www.phpmyadmin.net
+-
+- Servidor: localhost:3306
+- Tiempo de generación: 24-06-2023 a las 23:43:36
+- Versión del servidor: 8.0.33-0ubuntu0.22.04.2
+- Versión de PHP: 8.1.2-1ubuntu2.11
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="portfolio_backend" collation="utf8mb4_0900_ai_ci" charset="utf8mb4">
+            <pma:table name="educacion">
+                CREATE TABLE `educacion` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `descripcion` varchar(255) DEFAULT NULL,
+                  `fecha_fin` date DEFAULT NULL,
+                  `fecha_inicio` date DEFAULT NULL,
+                  `logo` varchar(255) DEFAULT NULL,
+                  `nombre` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="experiencia">
+                CREATE TABLE `experiencia` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `descripcion` varchar(255) DEFAULT NULL,
+                  `fecha_fin` date DEFAULT NULL,
+                  `fecha_inicio` date DEFAULT NULL,
+                  `logo` varchar(255) DEFAULT NULL,
+                  `nombre` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="persona">
+                CREATE TABLE `persona` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `apellido` varchar(255) DEFAULT NULL,
+                  `email` varchar(255) DEFAULT NULL,
+                  `img_fondo` varchar(255) DEFAULT NULL,
+                  `img_perfil_url` varchar(255) DEFAULT NULL,
+                  `nombre` varchar(255) DEFAULT NULL,
+                  `sobre_mi` varchar(255) DEFAULT NULL,
+                  `telefono` varchar(255) DEFAULT NULL,
+                  `titulo` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="proyecto">
+                CREATE TABLE `proyecto` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `descripcion` varchar(255) DEFAULT NULL,
+                  `fecha_creacion` date DEFAULT NULL,
+                  `imagen` varchar(255) DEFAULT NULL,
+                  `link` varchar(255) DEFAULT NULL,
+                  `nombre` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="red_social">
+                CREATE TABLE `red_social` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `icono` varchar(255) DEFAULT NULL,
+                  `nombre` varchar(255) DEFAULT NULL,
+                  `url` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="roles">
+                CREATE TABLE `roles` (
+                  `rol_id` bigint NOT NULL,
+                  `rol_nombre` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`rol_id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="skill">
+                CREATE TABLE `skill` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `nombre` varchar(255) DEFAULT NULL,
+                  `porcentaje` int NOT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="usuarios">
+                CREATE TABLE `usuarios` (
+                  `id` bigint NOT NULL AUTO_INCREMENT,
+                  `email` varchar(255) DEFAULT NULL,
+                  `password` varchar(255) DEFAULT NULL,
+                  `username` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+            <pma:table name="usuario_rol">
+                CREATE TABLE `usuario_rol` (
+                  `usuario_rol_id` bigint NOT NULL AUTO_INCREMENT,
+                  `rol_rol_id` bigint DEFAULT NULL,
+                  `usuario_id` bigint DEFAULT NULL,
+                  PRIMARY KEY (`usuario_rol_id`),
+                  KEY `FK7j1tyvjj1tv8gbq7n6f7efccc` (`rol_rol_id`),
+                  KEY `FKktsemf1f6awjww4da0ocv4n32` (`usuario_id`),
+                  CONSTRAINT `FK7j1tyvjj1tv8gbq7n6f7efccc` FOREIGN KEY (`rol_rol_id`) REFERENCES `roles` (`rol_id`),
+                  CONSTRAINT `FKktsemf1f6awjww4da0ocv4n32` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de datos: 'portfolio_backend'
+    -->
+    <database name="portfolio_backend">
+        <!-- Tabla educacion -->
+        <!-- Tabla experiencia -->
+        <!-- Tabla persona -->
+        <table name="persona">
+            <column name="id">1</column>
+            <column name="apellido">Cafre</column>
+            <column name="email">ernesto.cafre@hotmail.com</column>
+            <column name="img_fondo">NULL</column>
+            <column name="img_perfil_url">NULL</column>
+            <column name="nombre">Ernesto</column>
+            <column name="sobre_mi">NULL</column>
+            <column name="telefono">NULL</column>
+            <column name="titulo">NULL</column>
+        </table>
+        <!-- Tabla proyecto -->
+        <!-- Tabla red_social -->
+        <!-- Tabla roles -->
+        <table name="roles">
+            <column name="rol_id">1</column>
+            <column name="rol_nombre">ADMIN</column>
+        </table>
+        <!-- Tabla skill -->
+        <!-- Tabla usuarios -->
+        <table name="usuarios">
+            <column name="id">1</column>
+            <column name="email">admin@gmail.com</column>
+            <column name="password">$2a$10$bdNt4UJSX22z8GY5nzeg7.BsmUREh9Z27ZumkR9CWZz.Co1Wnw3ji</column>
+            <column name="username">admin</column>
+        </table>
+        <!-- Tabla usuario_rol -->
+        <table name="usuario_rol">
+            <column name="usuario_rol_id">1</column>
+            <column name="rol_rol_id">1</column>
+            <column name="usuario_id">1</column>
+        </table>
+    </database>
+</pma_xml_export>
